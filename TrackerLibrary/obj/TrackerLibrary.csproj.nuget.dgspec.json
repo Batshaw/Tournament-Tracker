@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\TournamentTracker\\TournamentTracker\\TrackerLibrary\\TrackerLibrary.csproj": {}
+    "D:\\BatshawProjekt\\Tournament-Tracker\\TrackerLibrary\\TrackerLibrary.csproj": {}
   },
   "projects": {
-    "G:\\TournamentTracker\\TournamentTracker\\TrackerLibrary\\TrackerLibrary.csproj": {
+    "D:\\BatshawProjekt\\Tournament-Tracker\\TrackerLibrary\\TrackerLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\TournamentTracker\\TournamentTracker\\TrackerLibrary\\TrackerLibrary.csproj",
+        "projectUniqueName": "D:\\BatshawProjekt\\Tournament-Tracker\\TrackerLibrary\\TrackerLibrary.csproj",
         "projectName": "TrackerLibrary",
-        "projectPath": "G:\\TournamentTracker\\TournamentTracker\\TrackerLibrary\\TrackerLibrary.csproj",
-        "packagesPath": "C:\\Users\\Batshaw\\.nuget\\packages\\",
-        "outputPath": "G:\\TournamentTracker\\TournamentTracker\\TrackerLibrary\\obj\\",
+        "projectPath": "D:\\BatshawProjekt\\Tournament-Tracker\\TrackerLibrary\\TrackerLibrary.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\BatshawProjekt\\Tournament-Tracker\\TrackerLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Batshaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
