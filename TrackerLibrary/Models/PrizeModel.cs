@@ -17,7 +17,7 @@ namespace TrackerLibrary.Models
             int.TryParse(placeNumber, out int placeNumberValue);
             this.PlaceNumber = placeNumberValue;
 
-            decimal.TryParse(placeNumber, out decimal prizeAmountValue);
+            decimal.TryParse(prizeAmount, out decimal prizeAmountValue);
             this.PrizeAmount = prizeAmountValue;
 
             double.TryParse(prizePercentage, out double prizePercentageValue);
