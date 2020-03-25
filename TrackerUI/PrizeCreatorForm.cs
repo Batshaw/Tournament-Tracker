@@ -70,9 +70,9 @@ namespace TrackerUI
             }
 
             decimal prizeAmount = 0;
-            int prizePercentage = 0;
+            double prizePercentage = 0;
             bool prizeAmountValid = decimal.TryParse(prizeAmountTextBox.Text, out prizeAmount);
-            bool prizePercentageValid = int.TryParse(prizePercentageTextBox.Text, out prizePercentage);
+            bool prizePercentageValid = double.TryParse(prizePercentageTextBox.Text, out prizePercentage);
 
             if (prizeAmountValid == false || prizePercentageValid == false)
             {
