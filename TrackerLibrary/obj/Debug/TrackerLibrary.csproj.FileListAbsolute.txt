@@ -7,3 +7,12 @@ D:\BatshawProjekt\Tournament-Tracker\ClassLibrary2\bin\Debug\Dapper.dll
 D:\BatshawProjekt\Tournament-Tracker\ClassLibrary2\bin\Debug\Dapper.xml
 D:\BatshawProjekt\Tournament-Tracker\ClassLibrary2\obj\Debug\TrackerLibrary.csprojAssemblyReference.cache
 D:\BatshawProjekt\Tournament-Tracker\ClassLibrary2\obj\Debug\TrackerLibrary.csproj.CopyComplete
+D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\obj\Debug\TrackerLibrary.csprojAssemblyReference.cache
+D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CoreCompileInputs.cache
+D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\obj\Debug\ClassLibrary2.dll
+D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\obj\Debug\ClassLibrary2.pdb
+D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\bin\Debug\ClassLibrary2.dll
+D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\bin\Debug\ClassLibrary2.pdb
+D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\bin\Debug\Dapper.dll
+D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\bin\Debug\Dapper.xml
+D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CopyComplete
