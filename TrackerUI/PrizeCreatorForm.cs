@@ -29,11 +29,8 @@ namespace TrackerUI
                                                   prizeAmountTextBox.Text,
                                                   prizePercentageTextBox.Text);
 
-                // save the prize for each Connection (SQL and TextFile)
-                foreach (var db in GlobalConfig.Connections)
-                {
-                    db.CreatePrize(model);
-                }
+                // save the prize for SQL
+                GlobalConfig.Connection.CreatePrize(model);
 
                 // reset the fields of the form to default
                 placeNameTextBox.Text = "";
