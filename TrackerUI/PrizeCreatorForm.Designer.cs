@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.createPrizeButton = new System.Windows.Forms.Button();
-            this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
+            this.prizePercentageTextBox = new System.Windows.Forms.TextBox();
             this.prizePercentageLabel = new System.Windows.Forms.Label();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.prizeAmountTextBox = new System.Windows.Forms.TextBox();
             this.prizeAmountLabel = new System.Windows.Forms.Label();
             this.placeNameTextBox = new System.Windows.Forms.TextBox();
             this.placeNameLabel = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@
             this.createPrizeButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createPrizeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
             this.createPrizeButton.Location = new System.Drawing.Point(116, 246);
-            this.createPrizeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.createPrizeButton.Margin = new System.Windows.Forms.Padding(2);
             this.createPrizeButton.Name = "createPrizeButton";
             this.createPrizeButton.Size = new System.Drawing.Size(124, 35);
             this.createPrizeButton.TabIndex = 30;
@@ -58,14 +58,15 @@
             this.createPrizeButton.UseVisualStyleBackColor = true;
             this.createPrizeButton.Click += new System.EventHandler(this.createPrizeButton_Click);
             // 
-            // phoneNumberTextBox
+            // prizePercentageTextBox
             // 
-            this.phoneNumberTextBox.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneNumberTextBox.Location = new System.Drawing.Point(202, 186);
-            this.phoneNumberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-            this.phoneNumberTextBox.Size = new System.Drawing.Size(126, 27);
-            this.phoneNumberTextBox.TabIndex = 29;
+            this.prizePercentageTextBox.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prizePercentageTextBox.Location = new System.Drawing.Point(202, 186);
+            this.prizePercentageTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.prizePercentageTextBox.Name = "prizePercentageTextBox";
+            this.prizePercentageTextBox.Size = new System.Drawing.Size(126, 27);
+            this.prizePercentageTextBox.TabIndex = 29;
+            this.prizePercentageTextBox.Text = "0";
             // 
             // prizePercentageLabel
             // 
@@ -79,14 +80,15 @@
             this.prizePercentageLabel.TabIndex = 28;
             this.prizePercentageLabel.Text = "Prize Percentage";
             // 
-            // emailTextBox
+            // prizeAmountTextBox
             // 
-            this.emailTextBox.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTextBox.Location = new System.Drawing.Point(202, 129);
-            this.emailTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(126, 27);
-            this.emailTextBox.TabIndex = 27;
+            this.prizeAmountTextBox.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prizeAmountTextBox.Location = new System.Drawing.Point(202, 129);
+            this.prizeAmountTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.prizeAmountTextBox.Name = "prizeAmountTextBox";
+            this.prizeAmountTextBox.Size = new System.Drawing.Size(126, 27);
+            this.prizeAmountTextBox.TabIndex = 27;
+            this.prizeAmountTextBox.Text = "0";
             // 
             // prizeAmountLabel
             // 
@@ -104,7 +106,7 @@
             // 
             this.placeNameTextBox.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.placeNameTextBox.Location = new System.Drawing.Point(202, 98);
-            this.placeNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.placeNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.placeNameTextBox.Name = "placeNameTextBox";
             this.placeNameTextBox.Size = new System.Drawing.Size(126, 27);
             this.placeNameTextBox.TabIndex = 25;
@@ -125,7 +127,7 @@
             // 
             this.placeNumberTextBox.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.placeNumberTextBox.Location = new System.Drawing.Point(202, 67);
-            this.placeNumberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.placeNumberTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.placeNumberTextBox.Name = "placeNumberTextBox";
             this.placeNumberTextBox.Size = new System.Drawing.Size(126, 27);
             this.placeNumberTextBox.TabIndex = 23;
@@ -173,16 +175,16 @@
             this.ClientSize = new System.Drawing.Size(363, 309);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.createPrizeButton);
-            this.Controls.Add(this.phoneNumberTextBox);
+            this.Controls.Add(this.prizePercentageTextBox);
             this.Controls.Add(this.prizePercentageLabel);
-            this.Controls.Add(this.emailTextBox);
+            this.Controls.Add(this.prizeAmountTextBox);
             this.Controls.Add(this.prizeAmountLabel);
             this.Controls.Add(this.placeNameTextBox);
             this.Controls.Add(this.placeNameLabel);
             this.Controls.Add(this.placeNumberTextBox);
             this.Controls.Add(this.placeNumberLabel);
             this.Controls.Add(this.createPrizeLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PrizeCreatorForm";
             this.Text = "Prize Creator";
             this.ResumeLayout(false);
@@ -193,9 +195,9 @@
         #endregion
 
         private System.Windows.Forms.Button createPrizeButton;
-        private System.Windows.Forms.TextBox phoneNumberTextBox;
+        private System.Windows.Forms.TextBox prizePercentageTextBox;
         private System.Windows.Forms.Label prizePercentageLabel;
-        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.TextBox prizeAmountTextBox;
         private System.Windows.Forms.Label prizeAmountLabel;
         private System.Windows.Forms.TextBox placeNameTextBox;
         private System.Windows.Forms.Label placeNameLabel;

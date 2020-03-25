@@ -6,6 +6,24 @@ namespace TrackerLibrary
 {
     public class PrizeModel
     {
+        public PrizeModel()
+        {
+
+        }
+        public PrizeModel(string placeName, string placeNumber, string prizeAmount, string prizePercentage)
+        {
+            this.PlaceName = placeName;
+
+            int.TryParse(placeNumber, out int placeNumberValue);
+            this.PlaceNumber = placeNumberValue;
+
+            decimal.TryParse(placeNumber, out decimal prizeAmountValue);
+            this.PrizeAmount = prizeAmountValue;
+
+            double.TryParse(prizePercentage, out double prizePercentageValue);
+            this.PrizePercentage = prizePercentageValue;
+        }
+
         /// <summary>
         /// Id of the Prize in SQL
         /// </summary>
