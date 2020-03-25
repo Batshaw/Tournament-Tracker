@@ -185,9 +185,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BatshawProjekt\\Tournament-Tracker\\TrackerLibrary\\TrackerLibrary.csproj",
-      "projectName": "TrackerLibrary",
-      "projectPath": "D:\\BatshawProjekt\\Tournament-Tracker\\TrackerLibrary\\TrackerLibrary.csproj",
+      "projectUniqueName": "D:\\BatshawProjekt\\Tournament-Tracker\\TrackerLibrary\\kajsd.csproj",
+      "projectName": "kajsd",
+      "projectPath": "D:\\BatshawProjekt\\Tournament-Tracker\\TrackerLibrary\\kajsd.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
       "outputPath": "D:\\BatshawProjekt\\Tournament-Tracker\\TrackerLibrary\\obj\\",
       "projectStyle": "PackageReference",

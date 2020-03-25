@@ -32,5 +32,10 @@ namespace TrackerLibrary
                 Connections.Add(text);
             }
         }
+
+        public static string ConnString(string name)
+        {
+            return ConfiguationManager.ConnectionStrings[name].ConnectionString;
+        }
     }
 }

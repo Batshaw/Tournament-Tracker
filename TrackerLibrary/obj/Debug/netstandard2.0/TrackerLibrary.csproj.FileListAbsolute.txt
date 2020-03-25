@@ -2,7 +2,6 @@ D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\bin\Debug\netstandard2.0\Tra
 D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\bin\Debug\netstandard2.0\TrackerLibrary.dll
 D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\bin\Debug\netstandard2.0\TrackerLibrary.pdb
 D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\obj\Debug\netstandard2.0\TrackerLibrary.csprojAssemblyReference.cache
-D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\obj\Debug\netstandard2.0\TrackerLibrary.csproj.CoreCompileInputs.cache
 D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\obj\Debug\netstandard2.0\TrackerLibrary.AssemblyInfoInputs.cache
 D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\obj\Debug\netstandard2.0\TrackerLibrary.AssemblyInfo.cs
 D:\BatshawProjekt\Tournament-Tracker\TrackerLibrary\obj\Debug\netstandard2.0\TrackerLibrary.dll
