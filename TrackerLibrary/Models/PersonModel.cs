@@ -6,6 +6,10 @@ namespace TrackerLibrary.Models
 {
     public class PersonModel
     {
+        public PersonModel()
+        {
+
+        }
         /// <summary>
         /// First Name of the player.
         /// </summary>

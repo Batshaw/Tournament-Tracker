@@ -38,12 +38,33 @@ namespace TrackerUI
                 EmailTextBox.Text = "";
                 PhoneTextBox.Text = "";
             }
+            else
+            {
+                MessageBox.Show("You need to fill in all of the fields first!");
+            }
         }
 
         private bool ValidateForm()
         {
             bool output = true;
-            // TODO - Code for ValidateForm
+
+            if (firstNameTextBox.Text.Length == 0)
+            {
+                output = false;
+            }
+            if (lastNameTextbox.Text.Length == 0)
+            {
+                output = false;
+            }
+            if (EmailTextBox.Text.Length == 0)
+            {
+                output = false;
+            }
+            if (PhoneTextBox.Text.Length == 0)
+            {
+                output = false;
+            }
+
             return output;
         }
     }

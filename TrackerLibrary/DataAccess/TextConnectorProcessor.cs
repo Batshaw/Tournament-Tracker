@@ -63,7 +63,6 @@ namespace TrackerLibrary.DataAccess.TextHelper
             
             return output;      // return the model with variables or an empty model if there are no file or no line
         }
-
         public static void SaveToPrizeFile(this List<PrizeModel> models, string fileName)
         {
             List<string> lines = new List<string>();
@@ -74,6 +73,39 @@ namespace TrackerLibrary.DataAccess.TextHelper
             }
 
             File.WriteAllLines(fileName.FullFilePath(), lines);     // Overwrite the file with new content which is the whole list of models
+        }
+
+        public static List<PersonModel> ConvertToPersonModels(this List<string> lines)
+        {
+            List<PersonModel> output = new List<PersonModel>();
+
+            foreach (var line in lines)
+            {
+                string[] cols = line.Split(',');
+
+                PersonModel p = new PersonModel();
+                // Read the value from the line into the variables of the new model
+                p.Id = int.Parse(cols[0]);
+                p.FirstName = cols[1];
+                p.LastName = cols[2];
+                p.EmailAdress = cols[3];
+                p.PhoneNumber = cols[4];
+
+                output.Add(p);
+            }
+
+            return output;
+        }
+        public static void SaveToPeopleFile(this List<PersonModel> models, string fileName)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (var p in models)
+            {
+                lines.Add($"{ p.Id },{ p.FirstName },{ p.LastName },{ p.EmailAdress },{ p.PhoneNumber }");
+            }
+
+            File.WriteAllLines(fileName.FullFilePath(), lines);
         }
     }
 }

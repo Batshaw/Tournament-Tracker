@@ -18,12 +18,13 @@ namespace TrackerUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Initialize the database connection
-            TrackerLibrary.GlobalConfig.InitializeConnections(TrackerLibrary.DatabaseType.Sql);
+            // TrackerLibrary.GlobalConfig.InitializeConnections(TrackerLibrary.DatabaseType.Sql);
             // Initialize the TextFile connection
-            //TrackerLibrary.GlobalConfig.InitializeConnections(TrackerLibrary.DatabaseType.TextFile);
+            TrackerLibrary.GlobalConfig.InitializeConnections(TrackerLibrary.DatabaseType.TextFile);
 
             // Application.Run(new DashBoardForm());
-            Application.Run(new PrizeCreatorForm());
+            // Application.Run(new PrizeCreatorForm());
+            Application.Run(new TeamCreatorForm());
         }
     }
 }
