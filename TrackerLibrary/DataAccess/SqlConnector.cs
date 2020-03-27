@@ -19,7 +19,6 @@ namespace TrackerLibrary.DataAccess
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString("Tournaments")))
             {
-                // TODO - Continue here!!!
                 var p = new DynamicParameters();
 
                 p.Add("@PlaceNumber", model.PlaceNumber);
@@ -30,6 +29,26 @@ namespace TrackerLibrary.DataAccess
 
                 // execute the connection for the stored procedure namely dbo.spPrizes_Insert with the parameters stored in p
                 connection.Execute("dbo.spPrizes_Insert", p, commandType:CommandType.StoredProcedure);
+
+                model.Id = p.Get<int>("@id");
+                return model;
+            }
+        }
+
+        public PersonModel CreatePerson(PersonModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString("Tournaments")))
+            {
+                var p = new DynamicParameters();
+
+                p.Add("@FirstName", model.FirstName);
+                p.Add("@Lastname", model.LastName);
+                p.Add("@EmailAddress", model.EmailAdress);
+                p.Add("@CellphoneNumber", model.PhoneNumber);
+                p.Add("@id", 0, DbType.Int32, direction: ParameterDirection.Output);
+
+                // TODO - Need a stored procedure namely dbo.spPeople_Insert
+                connection.Execute("dbo.spPeople_Insert", p, commandType: CommandType.StoredProcedure);
 
                 model.Id = p.Get<int>("@id");
                 return model;

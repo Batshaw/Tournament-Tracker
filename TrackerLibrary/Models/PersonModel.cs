@@ -22,5 +22,10 @@ namespace TrackerLibrary.Models
         /// Phonenumber of the player.
         /// </summary>
         public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Id of the Person
+        /// </summary>
+        public int Id { get; set; }
     }
 }

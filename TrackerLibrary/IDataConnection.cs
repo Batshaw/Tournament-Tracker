@@ -13,5 +13,6 @@ namespace TrackerLibrary
         /// <param name="model"></param>
         /// <returns></returns>
         PrizeModel CreatePrize(PrizeModel model);
+        PersonModel CreatePerson(PersonModel model);
     }
 }

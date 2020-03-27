@@ -23,7 +23,7 @@ namespace TrackerUI
         {
             if (ValidateForm())
             {
-                // create a Prize ater checking the valid of the form.
+                // create a Prize after checking the valid of the form.
                 PrizeModel model = new PrizeModel(placeNameTextBox.Text,
                                                   placeNumberTextBox.Text,
                                                   prizeAmountTextBox.Text,
