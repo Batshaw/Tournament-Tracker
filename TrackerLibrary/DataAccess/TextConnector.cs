@@ -11,6 +11,8 @@ namespace TrackerLibrary.DataAccess
     {
         private const string PrizesFile = "PrizeModels.csv";        // create a private and constant filename for PrizesFile
         private const string PeopleFile = "PeopleModels.csv";       // create a private and constant filename for PeopleFile
+        private const string TeamsFile = "TeamsModels.csv";
+        private const string TeamMembersFile = "TeamMembers.csv";
 
         // TODO - Wire up the CreatePrize for text files
         /// <summary>
@@ -71,7 +73,22 @@ namespace TrackerLibrary.DataAccess
 
         public TeamModel CreateTeam(TeamModel model)
         {
-            throw new NotImplementedException();
+            // Load file and convert to List<TeamModel>
+            List<TeamModel> teams = TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels();
+
+            int currentTeamId = 1;
+            if (teams.Count > 0)
+            {
+                currentTeamId = teams.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+            model.Id = currentTeamId;
+
+            teams.Add(model);
+
+            teams.SaveToTeamsAndTeamMembersFile(TeamsFile, TeamMembersFile);
+
+
+            return model;
         }
     }
 }

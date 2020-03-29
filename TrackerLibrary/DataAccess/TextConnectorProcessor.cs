@@ -107,5 +107,57 @@ namespace TrackerLibrary.DataAccess.TextHelper
 
             File.WriteAllLines(fileName.FullFilePath(), lines);
         }
+
+        public static List<TeamModel> ConvertToTeamModels(this List<string> lines)
+        {
+            List<TeamModel> output = new List<TeamModel>();
+
+            foreach (var line in lines)
+            {
+                string[] cols = line.Split(',');
+
+                TeamModel model = new TeamModel();
+                model.Id = int.Parse(cols[0]);
+                model.TeamName = cols[1];
+
+                output.Add(model);
+            }
+
+            return output;
+        }
+        public static void SaveToTeamsAndTeamMembersFile(this List<TeamModel> teams, string teamsFile, string teamMembersFile)
+        {
+            List<string> teamLines = new List<string>();
+            foreach (var p in teams)
+            {
+                teamLines.Add($"{ p.Id },{ p.TeamName }");
+            }
+            File.WriteAllLines(teamsFile.FullFilePath(), teamLines);
+
+            List<string> teamMembersLines = new List<string>();
+
+            List<string> allLines_string = new List<string>();
+            // Check if TeamMembersFile exists
+            if (File.Exists(teamMembersFile.FullFilePath()))
+            {
+                // Read all the lines of the teamMembersFile
+                string[] allLines = File.ReadAllLines(teamMembersFile.FullFilePath());
+                allLines_string = allLines.OfType<string>().ToList(); 
+            }
+
+            TeamModel lastAddedTeam = teams.Last();
+            int currentId = allLines_string.Count() + 1;
+            // Add all members of the last added Team to the lines container
+            // because only the last added Team in the list teams has teamMembers, other has only ID and Name
+            foreach (var p in lastAddedTeam.TeamMembers)
+            {
+                allLines_string.Add($"{ currentId },{ lastAddedTeam.Id },{ p.Id }");
+
+                currentId += 1;
+            }
+
+            // Overwrite the file with readText and the string of new team
+            File.WriteAllLines(teamMembersFile.FullFilePath(), allLines_string);
+        }
     }
 }
