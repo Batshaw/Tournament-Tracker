@@ -31,5 +31,13 @@ namespace TrackerLibrary.Models
         /// Id of the Person
         /// </summary>
         public int Id { get; set; }
+
+        public string FullName 
+        {
+            get
+            {
+                return $"{ this.FirstName } { this.LastName }";
+            } 
+        }
     }
 }
