@@ -14,9 +14,11 @@ namespace TrackerUI
 {
     public partial class PrizeCreatorForm : Form
     {
-        public PrizeCreatorForm()
+        IPrizeRequester callingForm;
+        public PrizeCreatorForm(IPrizeRequester caller)
         {
             InitializeComponent();
+            callingForm = caller;
         }
 
         private void createPrizeButton_Click(object sender, EventArgs e)
@@ -30,13 +32,17 @@ namespace TrackerUI
                                                   prizePercentageTextBox.Text);
 
                 // save the prize for SQL
-                GlobalConfig.Connection.CreatePrize(model);
+                model = GlobalConfig.Connection.CreatePrize(model);
+
+                callingForm.PrizeComplete(model);
+
+                this.Close();
 
                 // reset the fields of the form to default
-                placeNameTextBox.Text = "";
+                /* placeNameTextBox.Text = "";
                 placeNumberTextBox.Text = "";
                 prizeAmountTextBox.Text = "0";
-                prizePercentageTextBox.Text = "0";
+                prizePercentageTextBox.Text = "0";*/
 
             }
             else

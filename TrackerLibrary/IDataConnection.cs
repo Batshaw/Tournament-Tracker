@@ -14,7 +14,10 @@ namespace TrackerLibrary
         /// <returns></returns>
         PrizeModel CreatePrize(PrizeModel model);
         PersonModel CreatePerson(PersonModel model);
+        List<TeamModel> GetTeam_All();
         List<PersonModel> GetPerson_All();
         TeamModel CreateTeam(TeamModel model);
+        List<PrizeModel> GetPrizes_All();
+        TournamentModel CreateTournament(TournamentModel model);
     }
 }

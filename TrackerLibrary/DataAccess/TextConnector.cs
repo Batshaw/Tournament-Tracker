@@ -90,5 +90,20 @@ namespace TrackerLibrary.DataAccess
 
             return model;
         }
+
+        public List<TeamModel> GetTeam_All()
+        {
+            return TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels();
+        }
+
+        public List<PrizeModel> GetPrizes_All()
+        {
+            return PrizesFile.FullFilePath().LoadFile().ConvertToPrizeModels();
+        }
+
+        public TournamentModel CreateTournament(TournamentModel model)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
