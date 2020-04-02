@@ -74,7 +74,7 @@ namespace TrackerLibrary.DataAccess
         public TeamModel CreateTeam(TeamModel model)
         {
             // Load file and convert to List<TeamModel>
-            List<TeamModel> teams = TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels();
+            List<TeamModel> teams = TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
 
             int currentTeamId = 1;
             if (teams.Count > 0)
@@ -85,7 +85,7 @@ namespace TrackerLibrary.DataAccess
 
             teams.Add(model);
 
-            teams.SaveToTeamsAndTeamMembersFile(TeamsFile, TeamMembersFile);
+            teams.SaveToTeamsFile(TeamsFile);
 
 
             return model;
@@ -93,7 +93,7 @@ namespace TrackerLibrary.DataAccess
 
         public List<TeamModel> GetTeam_All()
         {
-            return TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels();
+            return TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
         }
 
         public List<PrizeModel> GetPrizes_All()
