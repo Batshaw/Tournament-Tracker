@@ -122,9 +122,8 @@ namespace TrackerLibrary.DataAccess.TextHelper
                 TeamModel model = new TeamModel();
                 model.Id = int.Parse(cols[0]);
                 model.TeamName = cols[1];
-                int idOfMember = 1;
 
-
+                int idOfMember;
                 foreach (var c in cols[2])
                 {
                     bool cIsInt = int.TryParse(c.ToString(), out idOfMember);
@@ -158,6 +157,60 @@ namespace TrackerLibrary.DataAccess.TextHelper
                 teamLines.Add(stringToAdd);
             }
             File.WriteAllLines(teamsFile.FullFilePath(), teamLines);
+        }
+
+        public static List<TournamentModel> ConvertToTournamentModels(this List<string> lines, string teamsFile, string prizesFile, string peopleFile)
+        {
+            // id,TournamentName,EntryFee,(id|id|id - EnteredTeam),(id|id|id - Prizes), (Rounds - id^id^id|id^id^id|id^id^id)
+            List<TournamentModel> output = new List<TournamentModel>();
+            List<TeamModel> teams = teamsFile.FullFilePath().LoadFile().ConvertToTeamModels(peopleFile);
+            List<PrizeModel> prizes = prizesFile.FullFilePath().LoadFile().ConvertToPrizeModels();
+
+            foreach (var line in lines)
+            {
+                string[] cols = line.Split(',');
+
+                TournamentModel p = new TournamentModel();
+                p.Id = int.Parse(cols[0]);
+                p.TournamentName = cols[1];
+                p.EntryFee = decimal.Parse(cols[2]);
+
+                int idOfEnteredTeam;
+                foreach (var c in cols[3])
+                {
+                    bool cIsInt = int.TryParse(c.ToString(), out idOfEnteredTeam);
+                    if (cIsInt)
+                    {
+                        foreach (var team in teams)
+                        {
+                            if (idOfEnteredTeam == team.Id)
+                            {
+                                p.EnteredTeam.Add(team);
+                            }
+                        }
+                    }
+                }
+
+                int idOfPrize;
+                foreach (var c in cols[4])
+                {
+                    bool cIsInt = int.TryParse(c.ToString(), out idOfPrize);
+                    if (cIsInt)
+                    {
+                        foreach (var prize in prizes)
+                        {
+                            if (idOfPrize == prize.Id)
+                            {
+                                p.Prizes.Add(prize);
+                            }
+                        }
+                    }
+                }
+
+                // TODO - Capture Rounds information
+                output.Add(p);
+            }
+            return output;
         }
     }
 }

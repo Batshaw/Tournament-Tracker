@@ -13,6 +13,7 @@ namespace TrackerLibrary.DataAccess
         private const string PeopleFile = "PeopleModels.csv";       // create a private and constant filename for PeopleFile
         private const string TeamsFile = "TeamsModels.csv";
         private const string TeamMembersFile = "TeamMembers.csv";
+        private const string TournamentsFile = "TournamentModels.csv";
 
         // TODO - Wire up the CreatePrize for text files
         /// <summary>
@@ -103,7 +104,9 @@ namespace TrackerLibrary.DataAccess
 
         public TournamentModel CreateTournament(TournamentModel model)
         {
-            throw new NotImplementedException();
+            List<TournamentModel> tournaments = TournamentsFile.FullFilePath().LoadFile().ConvertToTournamentModels(TeamsFile, PrizesFile, PeopleFile);
+            // TODO - Finish CreateTournament method
+            return model;
         }
     }
 }
