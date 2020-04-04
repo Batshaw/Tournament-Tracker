@@ -212,5 +212,36 @@ namespace TrackerLibrary.DataAccess.TextHelper
             }
             return output;
         }
+        public static void SaveToTournamentsFile(this List<TournamentModel> tournaments, string fileName)
+        {
+            // id,TournamentName,EntryFee,(id|id|id - EnteredTeam),(id|id|id - Prizes), (Rounds - id^id^id|id^id^id|id^id^id)
+            List<string> lines = new List<string>();
+            foreach (var tournament in tournaments)
+            {
+                // Write Id, TournamentName, EntryFee
+                string stringToAdd = $"{ tournament.Id },{ tournament.TournamentName },{ tournament.EntryFee },";
+                // Write EnteredTeam
+                foreach (var team in tournament.EnteredTeam)
+                {
+                    stringToAdd = stringToAdd + $"{ team.Id }|";
+                }
+                stringToAdd = stringToAdd + ",";
+                // Write Prize
+                foreach (var prize in tournament.Prizes)
+                {
+                    stringToAdd = stringToAdd + $"{ prize.Id }|";
+                }
+                stringToAdd = stringToAdd + ",";
+                // Write Rounds
+                foreach (var round in tournament.Rounds)
+                {
+                    foreach (var matchup in round)
+                    {
+                        stringToAdd = stringToAdd + $"{ matchup.Id}^";
+                    }
+                    stringToAdd = stringToAdd + "|";
+                }
+            }
+        }
     }
 }
