@@ -97,7 +97,7 @@ namespace TrackerLibrary
         {
             int output = 1;
             int value = 2;
-            if (value < teamsCount)
+            while (value < teamsCount)
             {
                 output += 1;
                 value *= 2;
