@@ -9,17 +9,50 @@ namespace TrackerLibrary
 {
     public static class TournamentLogic
     {
-        // Oder our list randomly of teams
-        // Check if tis big enough, if not, add in a fill-in
-        // Create first round of matchups
-        // Create every round after that
-
         public static void CreateRounds(TournamentModel tournament)
         {
+            // Oder our list randomly of teams
             List<TeamModel> randomizedTeams = RandomizeTeamOrder(tournament.EnteredTeam);
+            // Check if its big enough, if not, add in a fill-in
             int rounds = FindNumberOfRounds(randomizedTeams.Count());
             int numberOfFillInTeams = NumberOfFillInTeams(rounds, randomizedTeams.Count());
+            // Create first round of matchups
+            tournament.Rounds.Add(CreateFirstRound(numberOfFillInTeams, randomizedTeams));
+            // Create every round after that
+            CreateOtherRounds(tournament, rounds);
+        }
 
+        private static void CreateOtherRounds(TournamentModel tournament, int rounds)
+        {
+            // Start with round number 2
+            int round = 2;
+            // init variable
+            List<MatchupModel> prevRound = tournament.Rounds[0];
+            List<MatchupModel> curRound = new List<MatchupModel>();
+            MatchupModel curMatchup = new MatchupModel();
+
+            while (round <= rounds)
+            {
+                foreach (var matchup in prevRound)
+                {
+                    // add the matchup to the matchupEntry of the current matchup
+                    curMatchup.Entries.Add(new MatchupEntryModel { ParentMatchup = matchup });
+                    // stop adding matchup, because now curMatchup has 2 etries, add it to the curRound
+                    if (curMatchup.Entries.Count > 1)
+                    {
+                        curMatchup.MatchupRound = round;
+                        curRound.Add(curMatchup);
+                        // reset the curMatchup for the next loop
+                        curMatchup = new MatchupModel();
+                    }
+                }
+                // when round is fully filled, add it to the tournament entries list
+                tournament.Rounds.Add(curRound);
+                // set up for the next loop
+                prevRound = curRound;
+                curRound = new List<MatchupModel>();
+                round += 1;
+            }
         }
 
         private static List<MatchupModel> CreateFirstRound(int numberOfFillInTeams, List<TeamModel> teams)

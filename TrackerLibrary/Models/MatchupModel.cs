@@ -10,7 +10,7 @@ namespace TrackerLibrary.Models
         /// <summary>
         /// List of the MatchupEntry in this Matchup.
         /// </summary>
-        public List<MatchupEntryModel> Entries { get; set; }
+        public List<MatchupEntryModel> Entries = new List<MatchupEntryModel>();// { get; set; }
         /// <summary>
         /// Represents the winner of this Matchup.
         /// </summary>

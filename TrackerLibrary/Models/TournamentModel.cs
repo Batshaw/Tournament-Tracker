@@ -26,6 +26,6 @@ namespace TrackerLibrary.Models
         /// <summary>
         /// Represents the Round of the Tournament.
         /// </summary>
-        public List<List<MatchupModel>> Rounds { get; set; }
+        public List<List<MatchupModel>> Rounds = new List<List<MatchupModel>>(); //{ get; set; }
     }
 }
