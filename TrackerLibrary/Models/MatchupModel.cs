@@ -16,6 +16,10 @@ namespace TrackerLibrary.Models
         /// </summary>
         public TeamModel Winner { get; set; }
         /// <summary>
+        /// The ID from database that will be used to look up the Winner as TeamModel
+        /// </summary>
+        public int WinnerId { get; set; }
+        /// <summary>
         /// Represents the round number of this matchup.
         /// </summary>
         public int MatchupRound { get; set; }

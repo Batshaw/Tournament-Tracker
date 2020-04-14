@@ -125,5 +125,10 @@ namespace TrackerLibrary.DataAccess
 
             return model;
         }
+
+        public List<TournamentModel> GetTournament_All()
+        {
+            return GlobalConfig.TournamentsFile.FullFilePath().LoadFile().ConvertToTournamentModels();
+        }
     }
 }
