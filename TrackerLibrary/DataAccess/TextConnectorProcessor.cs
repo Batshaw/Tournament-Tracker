@@ -254,7 +254,10 @@ namespace TrackerLibrary.DataAccess.TextHelper
                     }
                     stringToAdd = stringToAdd + "|";
                 }
+                lines.Add(stringToAdd);
             }
+            File.WriteAllLines(GlobalConfig.TournamentsFile.FullFilePath(), lines);
+            
         }
 
         public static void SaveRoundsToFile(this TournamentModel model)
@@ -402,6 +405,10 @@ namespace TrackerLibrary.DataAccess.TextHelper
         private static MatchupModel LookUpMatchupById(int id)
         {
             List<MatchupModel> matchups = GlobalConfig.MatchupsFile.FullFilePath().LoadFile().ConvertToMatchupModels();
+            if (matchups.Count == 0)
+            {
+                return null;
+            }
             return matchups.Where(x => x.Id == id).First();
         }
     }

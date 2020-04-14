@@ -9,12 +9,12 @@ namespace TrackerLibrary.DataAccess
 {
     public class TextConnector : IDataConnection
     {
-        private const string PrizesFile = "PrizeModels.csv";        // create a private and constant filename for PrizesFile
-        private const string PeopleFile = "PeopleModels.csv";       // create a private and constant filename for PeopleFile
-        private const string TeamsFile = "TeamsModels.csv";
-        private const string TournamentsFile = "TournamentModels.csv";
-        private const string MatchupsFile = "MatchupModels.csv";
-        private const string MatchupEntriesFile = "MatchupEntryModels.csv";
+        //private const string PrizesFile = "PrizeModels.csv";        // create a private and constant filename for PrizesFile
+        //private const string PeopleFile = "PeopleModels.csv";       // create a private and constant filename for PeopleFile
+        //private const string TeamsFile = "TeamsModels.csv";
+        //private const string TournamentsFile = "TournamentModels.csv";
+        //private const string MatchupsFile = "MatchupModels.csv";
+        //private const string MatchupEntriesFile = "MatchupEntryModels.csv";
 
         // TODO - Wire up the CreatePrize for text files
         /// <summary>
@@ -25,7 +25,7 @@ namespace TrackerLibrary.DataAccess
         public PrizeModel CreatePrize(PrizeModel model)
         {
             // Load file and Convert the text to List<PrizeModel>
-            List<PrizeModel> prizes = PrizesFile.FullFilePath().LoadFile().ConvertToPrizeModels();
+            List<PrizeModel> prizes = GlobalConfig.PrizesFile.FullFilePath().LoadFile().ConvertToPrizeModels();
 
             // Find the maxID
             int currentId = 1;
@@ -48,7 +48,7 @@ namespace TrackerLibrary.DataAccess
         public PersonModel CreatePerson(PersonModel model)
         {
             // Load file and Convert the text to List<PersonModel>
-            List<PersonModel> people = PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
+            List<PersonModel> people = GlobalConfig.PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
 
             // Find the maxID
             int currentId = 1;
@@ -70,13 +70,13 @@ namespace TrackerLibrary.DataAccess
 
         public List<PersonModel> GetPerson_All()
         {
-            return PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
+            return GlobalConfig.PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
         }
 
         public TeamModel CreateTeam(TeamModel model)
         {
             // Load file and convert to List<TeamModel>
-            List<TeamModel> teams = TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels();
+            List<TeamModel> teams = GlobalConfig.TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels();
 
             int currentTeamId = 1;
             if (teams.Count > 0)
@@ -89,18 +89,17 @@ namespace TrackerLibrary.DataAccess
 
             teams.SaveToTeamsFile();
 
-
             return model;
         }
 
         public List<TeamModel> GetTeam_All()
         {
-            return TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels();
+            return GlobalConfig.TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels();
         }
 
         public List<PrizeModel> GetPrizes_All()
         {
-            return PrizesFile.FullFilePath().LoadFile().ConvertToPrizeModels();
+            return GlobalConfig.PrizesFile.FullFilePath().LoadFile().ConvertToPrizeModels();
         }
 
         public TournamentModel CreateTournament(TournamentModel model)
