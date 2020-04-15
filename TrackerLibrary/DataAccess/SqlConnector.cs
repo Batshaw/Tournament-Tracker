@@ -286,10 +286,10 @@ namespace TrackerLibrary.DataAccess
                         currentRow.Add(m);
                     }
                     tour.Rounds.Add(currentRow);
+                    p = new DynamicParameters();
                 }
 
             }
-
             return output;
         }
     }

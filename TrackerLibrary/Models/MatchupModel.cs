@@ -23,6 +23,36 @@ namespace TrackerLibrary.Models
         /// Represents the round number of this matchup.
         /// </summary>
         public int MatchupRound { get; set; }
+        /// <summary>
+        /// property to be displayed in TournamentViewerForm
+        /// </summary>
+        public string DisplayName
+        {
+            get
+            {
+                string output = null;
 
+                foreach (var entry in Entries)
+                {
+                    if (entry.TeamCompeting.TeamName != null)
+                    {
+                        if (output == null)
+                        {
+                            output = entry.TeamCompeting.TeamName;
+                        }
+                        else
+                        {
+                            output += $" vs. { entry.TeamCompeting.TeamName }";
+                        } 
+                    }
+                    else
+                    {
+                        output = "Matchup Not Yet Determined";
+                        break;
+                    }
+                }
+                return output;
+            }
+        }
     }
 }

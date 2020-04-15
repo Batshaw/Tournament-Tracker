@@ -12,7 +12,7 @@ using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
-    public partial class DashBoardForm : Form
+    public partial class DashBoardForm : Form, ITournamentRequester
     {
         private List<TournamentModel> tournaments = GlobalConfig.Connection.GetTournament_All();
         public DashBoardForm()
@@ -32,9 +32,21 @@ namespace TrackerUI
 
         private void createTournamentButton_Click(object sender, EventArgs e)
         {
-
+            TournamentCreatorForm tourForm = new TournamentCreatorForm(this);
+            tourForm.Show();
         }
 
+        public void TournamentRefresh(TournamentModel model)
+        {
+            tournaments.Add(model);
+            WireUpLists();
+        }
 
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            TournamentModel model = (TournamentModel)tournamentSelectionComboBox.SelectedItem;
+            TournamentViewerForm viewForm = new TournamentViewerForm(model);
+            viewForm.Show();
+        }
     }
 }

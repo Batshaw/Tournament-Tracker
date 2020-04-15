@@ -14,13 +14,15 @@ namespace TrackerUI
 {
     public partial class TournamentCreatorForm : Form, IPrizeRequester, ITeamRequester
     {
+        ITournamentRequester callingForm;
         private List<TeamModel> availabelTeams = GlobalConfig.Connection.GetTeam_All();
         private List<TeamModel> selectedTeams = new List<TeamModel>();
         private List<PrizeModel> selectedPrizes = GlobalConfig.Connection.GetPrizes_All();
 
-        public TournamentCreatorForm()
+        public TournamentCreatorForm(ITournamentRequester caller)
         {
             InitializeComponent();
+            callingForm = caller;
             WireUpLists();
         }
 
@@ -138,6 +140,10 @@ namespace TrackerUI
             // Creat all of the prizes entries
             // Creat all of the team entries
             GlobalConfig.Connection.CreateTournament(tm);
+
+            // sending the created tournamnet direct to the dashboard
+            callingForm.TournamentRefresh(tm);
+            this.Close();
         }
     }
 }

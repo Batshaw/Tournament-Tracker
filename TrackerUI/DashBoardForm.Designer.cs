@@ -56,19 +56,20 @@
             this.loadButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
             this.loadButton.Location = new System.Drawing.Point(164, 196);
-            this.loadButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loadButton.Margin = new System.Windows.Forms.Padding(2);
             this.loadButton.Name = "loadButton";
             this.loadButton.Size = new System.Drawing.Size(124, 35);
             this.loadButton.TabIndex = 24;
             this.loadButton.Text = "Load";
             this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
             // tournamentSelectionComboBox
             // 
             this.tournamentSelectionComboBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tournamentSelectionComboBox.FormattingEnabled = true;
             this.tournamentSelectionComboBox.Location = new System.Drawing.Point(97, 162);
-            this.tournamentSelectionComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tournamentSelectionComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.tournamentSelectionComboBox.Name = "tournamentSelectionComboBox";
             this.tournamentSelectionComboBox.Size = new System.Drawing.Size(261, 29);
             this.tournamentSelectionComboBox.TabIndex = 23;
@@ -94,7 +95,7 @@
             this.createTournamentButton.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createTournamentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
             this.createTournamentButton.Location = new System.Drawing.Point(128, 280);
-            this.createTournamentButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.createTournamentButton.Margin = new System.Windows.Forms.Padding(2);
             this.createTournamentButton.Name = "createTournamentButton";
             this.createTournamentButton.Size = new System.Drawing.Size(197, 54);
             this.createTournamentButton.TabIndex = 25;
@@ -112,7 +113,7 @@
             this.Controls.Add(this.tournamentSelectionComboBox);
             this.Controls.Add(this.loadingTournamentLabel);
             this.Controls.Add(this.dashboardLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DashBoardForm";
             this.Text = "Dashboard";
             this.ResumeLayout(false);

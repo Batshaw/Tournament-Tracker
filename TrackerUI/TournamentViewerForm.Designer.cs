@@ -51,7 +51,7 @@
             this.headerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
             this.headerLabel.Location = new System.Drawing.Point(12, 9);
             this.headerLabel.Name = "headerLabel";
-            this.headerLabel.Size = new System.Drawing.Size(278, 65);
+            this.headerLabel.Size = new System.Drawing.Size(217, 51);
             this.headerLabel.TabIndex = 0;
             this.headerLabel.Text = "Tournament:";
             // 
@@ -62,7 +62,7 @@
             this.tournamentName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
             this.tournamentName.Location = new System.Drawing.Point(296, 9);
             this.tournamentName.Name = "tournamentName";
-            this.tournamentName.Size = new System.Drawing.Size(193, 65);
+            this.tournamentName.Size = new System.Drawing.Size(152, 51);
             this.tournamentName.TabIndex = 1;
             this.tournamentName.Text = "<none>";
             // 
@@ -73,18 +73,18 @@
             this.roundLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
             this.roundLabel.Location = new System.Drawing.Point(16, 105);
             this.roundLabel.Name = "roundLabel";
-            this.roundLabel.Size = new System.Drawing.Size(124, 46);
+            this.roundLabel.Size = new System.Drawing.Size(100, 37);
             this.roundLabel.TabIndex = 2;
             this.roundLabel.Text = "Round:";
-            this.roundLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // roundDropDown
             // 
             this.roundDropDown.FormattingEnabled = true;
             this.roundDropDown.Location = new System.Drawing.Point(146, 109);
             this.roundDropDown.Name = "roundDropDown";
-            this.roundDropDown.Size = new System.Drawing.Size(257, 44);
+            this.roundDropDown.Size = new System.Drawing.Size(257, 38);
             this.roundDropDown.TabIndex = 3;
+            this.roundDropDown.SelectedIndexChanged += new System.EventHandler(this.roundDropDown_SelectedIndexChanged);
             // 
             // uplayedOnlyCheckBox
             // 
@@ -94,7 +94,7 @@
             this.uplayedOnlyCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
             this.uplayedOnlyCheckBox.Location = new System.Drawing.Point(146, 159);
             this.uplayedOnlyCheckBox.Name = "uplayedOnlyCheckBox";
-            this.uplayedOnlyCheckBox.Size = new System.Drawing.Size(257, 50);
+            this.uplayedOnlyCheckBox.Size = new System.Drawing.Size(209, 41);
             this.uplayedOnlyCheckBox.TabIndex = 4;
             this.uplayedOnlyCheckBox.Text = "Unplayed Only";
             this.uplayedOnlyCheckBox.UseVisualStyleBackColor = true;
@@ -103,11 +103,12 @@
             // 
             this.matchupListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.matchupListBox.FormattingEnabled = true;
-            this.matchupListBox.ItemHeight = 36;
+            this.matchupListBox.ItemHeight = 30;
             this.matchupListBox.Location = new System.Drawing.Point(23, 230);
             this.matchupListBox.Name = "matchupListBox";
-            this.matchupListBox.Size = new System.Drawing.Size(380, 290);
+            this.matchupListBox.Size = new System.Drawing.Size(380, 272);
             this.matchupListBox.TabIndex = 5;
+            this.matchupListBox.SelectedIndexChanged += new System.EventHandler(this.matchupListBox_SelectedIndexChanged);
             // 
             // team1NameLabel
             // 
@@ -116,10 +117,9 @@
             this.team1NameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
             this.team1NameLabel.Location = new System.Drawing.Point(476, 230);
             this.team1NameLabel.Name = "team1NameLabel";
-            this.team1NameLabel.Size = new System.Drawing.Size(172, 46);
+            this.team1NameLabel.Size = new System.Drawing.Size(137, 37);
             this.team1NameLabel.TabIndex = 6;
             this.team1NameLabel.Text = "<Team 1>";
-            this.team1NameLabel.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // team1ScoreLabel
             // 
@@ -128,7 +128,7 @@
             this.team1ScoreLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
             this.team1ScoreLabel.Location = new System.Drawing.Point(476, 276);
             this.team1ScoreLabel.Name = "team1ScoreLabel";
-            this.team1ScoreLabel.Size = new System.Drawing.Size(99, 41);
+            this.team1ScoreLabel.Size = new System.Drawing.Size(79, 32);
             this.team1ScoreLabel.TabIndex = 7;
             this.team1ScoreLabel.Text = "Score:";
             // 
@@ -136,14 +136,14 @@
             // 
             this.team1ScoreTextBox.Location = new System.Drawing.Point(581, 277);
             this.team1ScoreTextBox.Name = "team1ScoreTextBox";
-            this.team1ScoreTextBox.Size = new System.Drawing.Size(100, 42);
+            this.team1ScoreTextBox.Size = new System.Drawing.Size(100, 35);
             this.team1ScoreTextBox.TabIndex = 8;
             // 
             // team2ScoreTextBox
             // 
             this.team2ScoreTextBox.Location = new System.Drawing.Point(581, 484);
             this.team2ScoreTextBox.Name = "team2ScoreTextBox";
-            this.team2ScoreTextBox.Size = new System.Drawing.Size(100, 42);
+            this.team2ScoreTextBox.Size = new System.Drawing.Size(100, 35);
             this.team2ScoreTextBox.TabIndex = 11;
             // 
             // team2ScoreLabel
@@ -153,7 +153,7 @@
             this.team2ScoreLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
             this.team2ScoreLabel.Location = new System.Drawing.Point(476, 483);
             this.team2ScoreLabel.Name = "team2ScoreLabel";
-            this.team2ScoreLabel.Size = new System.Drawing.Size(99, 41);
+            this.team2ScoreLabel.Size = new System.Drawing.Size(79, 32);
             this.team2ScoreLabel.TabIndex = 10;
             this.team2ScoreLabel.Text = "Score:";
             // 
@@ -164,10 +164,9 @@
             this.team2NameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
             this.team2NameLabel.Location = new System.Drawing.Point(476, 437);
             this.team2NameLabel.Name = "team2NameLabel";
-            this.team2NameLabel.Size = new System.Drawing.Size(172, 46);
+            this.team2NameLabel.Size = new System.Drawing.Size(137, 37);
             this.team2NameLabel.TabIndex = 9;
             this.team2NameLabel.Text = "<Team 2>";
-            this.team2NameLabel.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
@@ -176,10 +175,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
             this.label1.Location = new System.Drawing.Point(535, 356);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 46);
+            this.label1.Size = new System.Drawing.Size(70, 37);
             this.label1.TabIndex = 12;
             this.label1.Text = "-VS-";
-            this.label1.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // scoreButton
             // 
@@ -195,10 +193,11 @@
             this.scoreButton.TabIndex = 13;
             this.scoreButton.Text = "Score";
             this.scoreButton.UseVisualStyleBackColor = true;
+            this.scoreButton.Click += new System.EventHandler(this.scoreButton_Click);
             // 
             // TournamentViewerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 36F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(903, 580);
