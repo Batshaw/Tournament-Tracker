@@ -40,7 +40,7 @@
             this.team2ScoreTextBox = new System.Windows.Forms.TextBox();
             this.team2ScoreLabel = new System.Windows.Forms.Label();
             this.team2NameLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.versusLabel = new System.Windows.Forms.Label();
             this.scoreButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -98,6 +98,7 @@
             this.uplayedOnlyCheckBox.TabIndex = 4;
             this.uplayedOnlyCheckBox.Text = "Unplayed Only";
             this.uplayedOnlyCheckBox.UseVisualStyleBackColor = true;
+            this.uplayedOnlyCheckBox.CheckedChanged += new System.EventHandler(this.uplayedOnlyCheckBox_CheckedChanged);
             // 
             // matchupListBox
             // 
@@ -168,16 +169,16 @@
             this.team2NameLabel.TabIndex = 9;
             this.team2NameLabel.Text = "<Team 2>";
             // 
-            // label1
+            // versusLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
-            this.label1.Location = new System.Drawing.Point(535, 356);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 37);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "-VS-";
+            this.versusLabel.AutoSize = true;
+            this.versusLabel.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.versusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(23)))), ((int)(((byte)(255)))));
+            this.versusLabel.Location = new System.Drawing.Point(535, 356);
+            this.versusLabel.Name = "versusLabel";
+            this.versusLabel.Size = new System.Drawing.Size(70, 37);
+            this.versusLabel.TabIndex = 12;
+            this.versusLabel.Text = "-VS-";
             // 
             // scoreButton
             // 
@@ -202,7 +203,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(903, 580);
             this.Controls.Add(this.scoreButton);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.versusLabel);
             this.Controls.Add(this.team2ScoreTextBox);
             this.Controls.Add(this.team2ScoreLabel);
             this.Controls.Add(this.team2NameLabel);
@@ -238,7 +239,7 @@
         private System.Windows.Forms.TextBox team2ScoreTextBox;
         private System.Windows.Forms.Label team2ScoreLabel;
         private System.Windows.Forms.Label team2NameLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label versusLabel;
         private System.Windows.Forms.Button scoreButton;
     }
 }
