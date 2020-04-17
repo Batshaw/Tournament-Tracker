@@ -66,7 +66,7 @@ namespace TrackerUI
                 model.EmailAdress = EmailTextBox.Text;
                 model.PhoneNumber = PhoneTextBox.Text;
 
-                model = GlobalConfig.Connection.CreatePerson(model);
+                GlobalConfig.Connection.CreatePerson(model);
 
                 // Add the new created member to the selectedMemberListBox
                 selectedTeamMembers.Add(model);
@@ -146,7 +146,7 @@ namespace TrackerUI
                 model.TeamName = teamNameTextBox.Text;
                 model.TeamMembers = selectedTeamMembers;
 
-                model = GlobalConfig.Connection.CreateTeam(model);
+                GlobalConfig.Connection.CreateTeam(model);
 
                 callingForm.TeamComplete(model);
 

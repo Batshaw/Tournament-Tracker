@@ -17,7 +17,7 @@ namespace TrackerLibrary.DataAccess
         /// </summary>
         /// <param name="model"></param>
         /// <returns>The prize information, including the unique identifier.</returns>
-        public PrizeModel CreatePrize(PrizeModel model)
+        public void CreatePrize(PrizeModel model)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(database)))
             {
@@ -34,10 +34,9 @@ namespace TrackerLibrary.DataAccess
 
                 model.Id = p.Get<int>("@id");
             }
-            return model;
         }
 
-        public PersonModel CreatePerson(PersonModel model)
+        public void CreatePerson(PersonModel model)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(database)))
             {
@@ -53,7 +52,6 @@ namespace TrackerLibrary.DataAccess
 
                 model.Id = p.Get<int>("@id");
             }
-            return model;
         }
 
         public List<PersonModel> GetPerson_All()
@@ -67,7 +65,7 @@ namespace TrackerLibrary.DataAccess
             return output;
         }
 
-        public TeamModel CreateTeam(TeamModel teamModel)
+        public void CreateTeam(TeamModel teamModel)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(database)))
             {
@@ -94,7 +92,6 @@ namespace TrackerLibrary.DataAccess
                 }
                 
             }
-            return teamModel;
         }
 
         public List<TeamModel> GetTeam_All()
@@ -128,7 +125,7 @@ namespace TrackerLibrary.DataAccess
             return output;
         }
 
-        public TournamentModel CreateTournament(TournamentModel model)
+        public void CreateTournament(TournamentModel model)
         {
 
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(database)))
@@ -140,7 +137,6 @@ namespace TrackerLibrary.DataAccess
                 SaveTournamentEntries(connection, model);
                 SaveTournamentRounds(connection, model);
             }
-            return model;
         }
         private void SaveTournament(IDbConnection connection, TournamentModel model)
         {

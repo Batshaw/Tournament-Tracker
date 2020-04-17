@@ -32,7 +32,7 @@ namespace TrackerUI
                                                   prizePercentageTextBox.Text);
 
                 // save the prize for SQL
-                model = GlobalConfig.Connection.CreatePrize(model);
+                GlobalConfig.Connection.CreatePrize(model);
 
                 callingForm.PrizeComplete(model);
 
