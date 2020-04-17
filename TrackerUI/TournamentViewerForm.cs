@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrackerLibrary;
 using TrackerLibrary.Models;
 
 namespace TrackerUI
@@ -205,8 +206,30 @@ namespace TrackerUI
             {
                 MessageBox.Show("This app do not handle tie games. (not an even score");
             }
+
+            // move the winner to the next round
+            foreach (var round in tournament.Rounds)
+            {
+                foreach (var roundMatchup in round)
+                {
+                    foreach (var matchupentry in roundMatchup.Entries)
+                    {
+                        if (matchupentry.ParentMatchup.Id == matchup.Id)
+                        {
+                            matchupentry.TeamCompeting = matchup.Winner;
+                            GlobalConfig.Connection.UpdateMatchup(roundMatchup);
+                        } 
+                    }
+                }
+            }
+
             LoadMatchups((int)roundDropDown.SelectedItem);
             LoadMatchupForScoreSection((MatchupModel)matchupListBox.SelectedItem);
+
+            // Save the score and winner to the database
+
+            GlobalConfig.Connection.UpdateMatchup(matchup); 
+
         }
     }
 }

@@ -20,5 +20,7 @@ namespace TrackerLibrary
         TeamModel CreateTeam(TeamModel model);
         List<PrizeModel> GetPrizes_All();
         TournamentModel CreateTournament(TournamentModel model);
+
+        void UpdateMatchup(MatchupModel model);
     }
 }
