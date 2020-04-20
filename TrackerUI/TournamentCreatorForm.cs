@@ -141,6 +141,9 @@ namespace TrackerUI
             // Creat all of the team entries
             GlobalConfig.Connection.CreateTournament(tm);
 
+            // call this function to move all the matchups with only 1 entry into the next round
+            TournamentLogic.UpdateTournamentResult(tm);
+
             // sending the created tournamnet direct to the dashboard
             callingForm.TournamentRefresh(tm);
             this.Close();

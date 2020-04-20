@@ -193,35 +193,7 @@ namespace TrackerUI
                 }
             }
 
-            if (team1Score > team2Score)
-            {
-                // Team 1 wins
-                matchup.Winner = matchup.Entries[0].TeamCompeting;
-            }
-            else if (team2Score > team1Score)
-            {
-                matchup.Winner = matchup.Entries[1].TeamCompeting;
-            }
-            else
-            {
-                MessageBox.Show("This app do not handle tie games. (not an even score");
-            }
-
-            // move the winner to the next round
-            foreach (var round in tournament.Rounds)
-            {
-                foreach (var roundMatchup in round)
-                {
-                    foreach (var matchupentry in roundMatchup.Entries)
-                    {
-                        if (matchupentry.ParentMatchup.Id == matchup.Id)
-                        {
-                            matchupentry.TeamCompeting = matchup.Winner;
-                            GlobalConfig.Connection.UpdateMatchup(roundMatchup);
-                        } 
-                    }
-                }
-            }
+            TournamentLogic.UpdateTournamentResult(tournament);
 
             LoadMatchups((int)roundDropDown.SelectedItem);
             LoadMatchupForScoreSection((MatchupModel)matchupListBox.SelectedItem);
