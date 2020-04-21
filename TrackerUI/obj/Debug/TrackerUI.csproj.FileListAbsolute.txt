@@ -54,12 +54,17 @@ E:\Project\Tournament-Tracker\TrackerUI\bin\Debug\System.Security.AccessControl.
 E:\Project\Tournament-Tracker\TrackerUI\bin\Debug\System.Security.Permissions.xml
 E:\Project\Tournament-Tracker\TrackerUI\bin\Debug\System.Security.Principal.Windows.xml
 E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.csprojAssemblyReference.cache
+E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.UCTeamCreator.resources
+E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.UCTournamentCreator.resources
 E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.DashBoardForm.resources
+E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.UCDashboard.resources
 E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.PrizeCreatorForm.resources
 E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.Properties.Resources.resources
 E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.TeamCreatorForm.resources
 E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.TournamentCreatorForm.resources
 E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.TournamentViewerForm.resources
+E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\ClassLibrary2.UCPrizeCreator.resources
+E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.UCTournamentViewer.resources
 E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.csproj.GenerateResource.cache
 E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.csproj.CoreCompileInputs.cache
 E:\Project\Tournament-Tracker\TrackerUI\obj\Debug\TrackerUI.csproj.CopyComplete
