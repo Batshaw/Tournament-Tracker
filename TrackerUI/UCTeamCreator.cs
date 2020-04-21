@@ -14,10 +14,10 @@ namespace TrackerUI
 {
     public partial class UCTeamCreator : UserControl
     {
-        ITeamRequester callingForm;
+        DashBoardForm callingForm;
         private List<PersonModel> availableTeamMembers = GlobalConfig.Connection.GetPerson_All();
         private List<PersonModel> selectedTeamMembers = new List<PersonModel>();
-        public UCTeamCreator(ITeamRequester caller)
+        public UCTeamCreator(DashBoardForm caller)
         {
             InitializeComponent();
             callingForm = caller;
@@ -47,7 +47,6 @@ namespace TrackerUI
                 model.TeamMembers = selectedTeamMembers;
 
                 GlobalConfig.Connection.CreateTeam(model);
-
                 callingForm.TeamComplete(model);
 
                 // Close the window after click create team button

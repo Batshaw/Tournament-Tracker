@@ -13,11 +13,11 @@ using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
-    public partial class DashBoardForm : Form, ITournamentRequester, IPrizeRequester, ITeamRequester
+    public partial class DashBoardForm : Form// , ITournamentRequester// , IPrizeRequester// , ITeamRequester
     {
-        private List<PrizeModel> prizes = GlobalConfig.Connection.GetPrizes_All();
-        private List<TeamModel> teams = GlobalConfig.Connection.GetTeam_All();
-        private List<TournamentModel> tournaments = GlobalConfig.Connection.GetTournament_All();
+        public List<PrizeModel> prizes = GlobalConfig.Connection.GetPrizes_All();
+        public List<TeamModel> teams = GlobalConfig.Connection.GetTeam_All();
+        public List<TournamentModel> tournaments = GlobalConfig.Connection.GetTournament_All();
         private List<Button> viewerButtons = new List<Button>();
         public TournamentModel toShowTournament = new TournamentModel();
         public DashBoardForm()
@@ -43,25 +43,25 @@ namespace TrackerUI
 
         private void WireUpLists()
         {
-            //tournamentSelectionComboBox.DataSource = null;
+            // tournamentSelectionComboBox.DataSource = null;
 
             //tournamentSelectionComboBox.DataSource = tournaments;
-            //tournamentSelectionComboBox.DisplayMember = "TournamentName";
+            //tournamentSelectionComboBox.DisplayMember = "TournamentName";  
         }
-        public void TournamentRefresh(TournamentModel model)
+        public void TournamentComplete(TournamentModel model)
         {
             tournaments.Add(model);
-            WireUpLists();
+            ucDashboard.WireUpLists();
         }
         public void PrizeComplete(PrizeModel model)
         {
             prizes.Add(model);
-            WireUpLists();
+            this.ucTournamentCreator.WireUpLists();
         }
         public void TeamComplete(TeamModel model)
         {
             teams.Add(model);
-            WireUpLists();
+            ucTournamentCreator.WireUpLists();
         }
 
         private void loadButton_Click(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace TrackerUI
 
         private void createTournamentButton_Click(object sender, EventArgs e)
         {
-            TournamentCreatorForm tourForm = new TournamentCreatorForm(this);
+            // TournamentCreatorForm tourForm = new TournamentCreatorForm(this);
             // tourForm.Show();
             ucTournamentCreator.BringToFront();
             resetBorderLook(createTournamentButton);
@@ -132,7 +132,22 @@ namespace TrackerUI
             this.ucTournamentViewer.BringToFront();
             resetBorderLook(tournamentViewButton);
         }
-
+        public void changeToTeamCreator()
+        {
+            this.ucTeamCreator.BringToFront();
+        }
+        public void changeToPrizeCreator()
+        {
+            this.ucPrizeCreator.BringToFront();
+        }
+        public void changeToTournamentCreator()
+        {
+            this.ucTournamentCreator.BringToFront();
+        }
+        public void changeToDashboard()
+        {
+            this.ucDashboard.BringToFront();
+        }
         private void ucTournamentViewer_Load(object sender, EventArgs e)
         {
 

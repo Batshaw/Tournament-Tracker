@@ -12,13 +12,13 @@ using TrackerLibrary;
 
 namespace TrackerUI
 {
-    public partial class UCTournamentCreator : UserControl, IPrizeRequester, ITeamRequester
+    public partial class UCTournamentCreator : UserControl
     {
-        ITournamentRequester callingForm;
+        DashBoardForm callingForm;
         private List<TeamModel> availabelTeams = GlobalConfig.Connection.GetTeam_All();
         private List<TeamModel> selectedTeams = new List<TeamModel>();
         private List<PrizeModel> selectedPrizes = GlobalConfig.Connection.GetPrizes_All();
-        public UCTournamentCreator(ITournamentRequester caller)
+        public UCTournamentCreator(DashBoardForm caller)
         {
             InitializeComponent();
             callingForm = caller;
@@ -37,12 +37,6 @@ namespace TrackerUI
             prizeListBox.DataSource = null;
             prizeListBox.DataSource = selectedPrizes;
             prizeListBox.DisplayMember = "PlaceName";
-        }
-
-        public void PrizeComplete(PrizeModel model)
-        {
-            selectedPrizes.Add(model);
-            WireUpLists();
         }
 
         public void TeamComplete(TeamModel model)
@@ -87,12 +81,14 @@ namespace TrackerUI
             TournamentLogic.UpdateTournamentResult(tm);
 
             // sending the created tournamnet direct to the dashboard
-            callingForm.TournamentRefresh(tm);
+            callingForm.TournamentComplete(tm);
+            callingForm.changeToDashboard();
         }
 
         private void teamCreatorLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // TODO - teamCreatorLinkLabel_LinkClicked
+            callingForm.changeToTeamCreator();
         }
 
         private void addTeamButton_Click(object sender, EventArgs e)
@@ -133,6 +129,7 @@ namespace TrackerUI
         private void createPrizeButton_Click(object sender, EventArgs e)
         {
             // TODO - createPrizeButton_Click
+            callingForm.changeToPrizeCreator();
         }
     }
 }

@@ -15,8 +15,8 @@ namespace ClassLibrary2
 {
     public partial class UCPrizeCreator : UserControl
     {
-        IPrizeRequester callingForm;
-        public UCPrizeCreator(IPrizeRequester caller)
+        DashBoardForm callingForm;
+        public UCPrizeCreator(DashBoardForm caller)
         {
             InitializeComponent();
             callingForm = caller;
@@ -36,7 +36,7 @@ namespace ClassLibrary2
                 GlobalConfig.Connection.CreatePrize(model);
 
                 callingForm.PrizeComplete(model);
-                this.SendToBack();
+                callingForm.changeToTournamentCreator();
                 // reset the fields of the form to default
                 placeNameTextBox.Text = "";
                 placeNumberTextBox.Text = "";

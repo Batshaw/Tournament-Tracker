@@ -13,7 +13,7 @@ using System.Security.Cryptography;
 
 namespace TrackerUI
 {
-    public partial class UCDashboard : UserControl, ITournamentRequester
+    public partial class UCDashboard : UserControl
     {
         DashBoardForm callingForm;
         private List<PrizeModel> prizes = GlobalConfig.Connection.GetPrizes_All();
@@ -26,18 +26,12 @@ namespace TrackerUI
             callingForm = caller;
             WireUpLists();
         }
-        private void WireUpLists()
+        public void WireUpLists()
         {
             tournamentSelectionComboBox.DataSource = null;
 
-            tournamentSelectionComboBox.DataSource = tournaments;
+            tournamentSelectionComboBox.DataSource = callingForm.tournaments;
             tournamentSelectionComboBox.DisplayMember = "TournamentName";
-        }
-
-        public void TournamentRefresh(TournamentModel model)
-        {
-            tournaments.Add(model);
-            WireUpLists();
         }
 
         private void loadButton_Click(object sender, EventArgs e)

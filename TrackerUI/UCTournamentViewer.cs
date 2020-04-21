@@ -162,6 +162,7 @@ namespace TrackerUI
         private void uplayedOnlyCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             LoadMatchups((int)roundDropDown.SelectedItem);
+            LoadMatchupForScoreSection((MatchupModel)matchupListBox.SelectedItem);
         }
         private void scoreButton_Click(object sender, EventArgs e)
         {

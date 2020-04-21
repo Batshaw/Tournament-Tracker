@@ -9,6 +9,6 @@ namespace TrackerUI
 {
     public interface ITournamentRequester
     {
-        void TournamentRefresh(TournamentModel model);
+        void TournamentComplete(TournamentModel model);
     }
 }

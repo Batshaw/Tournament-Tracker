@@ -12,7 +12,7 @@ using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
-    public partial class TournamentCreatorForm : Form, IPrizeRequester, ITeamRequester
+    public partial class TournamentCreatorForm : Form, IPrizeRequester , ITeamRequester
     {
         ITournamentRequester callingForm;
         private List<TeamModel> availabelTeams = GlobalConfig.Connection.GetTeam_All();
@@ -145,7 +145,7 @@ namespace TrackerUI
             TournamentLogic.UpdateTournamentResult(tm);
 
             // sending the created tournamnet direct to the dashboard
-            callingForm.TournamentRefresh(tm);
+            callingForm.TournamentComplete(tm);
             this.Close();
         }
     }
