@@ -19,10 +19,10 @@ namespace TrackerUI
         private List<TeamModel> teams = GlobalConfig.Connection.GetTeam_All();
         private List<TournamentModel> tournaments = GlobalConfig.Connection.GetTournament_All();
         private List<Button> viewerButtons = new List<Button>();
-        public TournamentModel firstTournament = new TournamentModel();
+        public TournamentModel toShowTournament = new TournamentModel();
         public DashBoardForm()
         {
-            firstTournament = tournaments.First();
+
             InitializeComponent();
             AddButton();
             ucDashboard.BringToFront();
@@ -43,10 +43,10 @@ namespace TrackerUI
 
         private void WireUpLists()
         {
-            tournamentSelectionComboBox.DataSource = null;
+            //tournamentSelectionComboBox.DataSource = null;
 
-            tournamentSelectionComboBox.DataSource = tournaments;
-            tournamentSelectionComboBox.DisplayMember = "TournamentName";
+            //tournamentSelectionComboBox.DataSource = tournaments;
+            //tournamentSelectionComboBox.DisplayMember = "TournamentName";
         }
         public void TournamentRefresh(TournamentModel model)
         {
@@ -66,10 +66,10 @@ namespace TrackerUI
 
         private void loadButton_Click(object sender, EventArgs e)
         {
-            TournamentModel model = (TournamentModel)tournamentSelectionComboBox.SelectedItem;
-            this.ucTournamentViewer = new UCTournamentViewer(model);
-            ucTournamentViewer.BringToFront();
-            resetBorderLook(tournamentViewButton);
+            //TournamentModel model = (TournamentModel)tournamentSelectionComboBox.SelectedItem;
+            //this.ucTournamentViewer = new UCTournamentViewer(model);
+            //ucTournamentViewer.BringToFront();
+            //resetBorderLook(tournamentViewButton);
         }
 
         private void exitButton_Click(object sender, EventArgs e)

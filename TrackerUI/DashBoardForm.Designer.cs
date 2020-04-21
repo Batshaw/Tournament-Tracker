@@ -32,10 +32,7 @@ namespace TrackerUI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoardForm));
-            this.dashboardLabel = new System.Windows.Forms.Label();
             this.loadButton = new System.Windows.Forms.Button();
-            this.tournamentSelectionComboBox = new System.Windows.Forms.ComboBox();
-            this.loadingTournamentLabel = new System.Windows.Forms.Label();
             this.createTournamentButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.activePanel = new System.Windows.Forms.Panel();
@@ -44,31 +41,17 @@ namespace TrackerUI
             this.homeButton = new System.Windows.Forms.Button();
             this.tournamentViewButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.ucTournamentViewer = new TrackerUI.UCTournamentViewer(firstTournament);
-            this.ucDashboard = new TrackerUI.UCDashboard(this);
+            this.ucDashboard = new UCDashboard(this);
             this.ucPrizeCreator = new ClassLibrary2.UCPrizeCreator(this);
             this.ucTeamCreator = new UCTeamCreator(this);
             this.ucTournamentCreator = new UCTournamentCreator(this);
+            this.ucTournamentViewer = new UCTournamentViewer(toShowTournament);
             this.exitButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dashboardLabel
-            // 
-            this.dashboardLabel.AutoSize = true;
-            this.dashboardLabel.BackColor = System.Drawing.Color.Transparent;
-            this.dashboardLabel.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold);
-            this.dashboardLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dashboardLabel.Location = new System.Drawing.Point(-218, 391);
-            this.dashboardLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.dashboardLabel.Name = "dashboardLabel";
-            this.dashboardLabel.Size = new System.Drawing.Size(397, 46);
-            this.dashboardLabel.TabIndex = 1;
-            this.dashboardLabel.Text = "Tournament Dashboard";
             // 
             // loadButton
             // 
@@ -87,32 +70,6 @@ namespace TrackerUI
             this.loadButton.Text = "Load";
             this.loadButton.UseVisualStyleBackColor = false;
             this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
-            // 
-            // tournamentSelectionComboBox
-            // 
-            this.tournamentSelectionComboBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tournamentSelectionComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tournamentSelectionComboBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tournamentSelectionComboBox.FormattingEnabled = true;
-            this.tournamentSelectionComboBox.Location = new System.Drawing.Point(-150, 511);
-            this.tournamentSelectionComboBox.Margin = new System.Windows.Forms.Padding(2);
-            this.tournamentSelectionComboBox.MaxDropDownItems = 2;
-            this.tournamentSelectionComboBox.Name = "tournamentSelectionComboBox";
-            this.tournamentSelectionComboBox.Size = new System.Drawing.Size(261, 29);
-            this.tournamentSelectionComboBox.TabIndex = 23;
-            // 
-            // loadingTournamentLabel
-            // 
-            this.loadingTournamentLabel.AutoSize = true;
-            this.loadingTournamentLabel.BackColor = System.Drawing.Color.Transparent;
-            this.loadingTournamentLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.loadingTournamentLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.loadingTournamentLabel.Location = new System.Drawing.Point(-165, 453);
-            this.loadingTournamentLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.loadingTournamentLabel.Name = "loadingTournamentLabel";
-            this.loadingTournamentLabel.Size = new System.Drawing.Size(290, 30);
-            this.loadingTournamentLabel.TabIndex = 22;
-            this.loadingTournamentLabel.Text = "Loading Existing Tournament";
             // 
             // createTournamentButton
             // 
@@ -138,12 +95,9 @@ namespace TrackerUI
             this.panel2.Controls.Add(this.activePanel);
             this.panel2.Controls.Add(this.createPrizeViewerButton);
             this.panel2.Controls.Add(this.creatTeamViewerButton);
-            this.panel2.Controls.Add(this.dashboardLabel);
-            this.panel2.Controls.Add(this.loadingTournamentLabel);
             this.panel2.Controls.Add(this.homeButton);
             this.panel2.Controls.Add(this.loadButton);
             this.panel2.Controls.Add(this.tournamentViewButton);
-            this.panel2.Controls.Add(this.tournamentSelectionComboBox);
             this.panel2.Controls.Add(this.createTournamentButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 10);
@@ -234,33 +188,16 @@ namespace TrackerUI
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.ucTournamentViewer);
-            this.panel3.Controls.Add(this.ucDashboard);
-            this.panel3.Controls.Add(this.ucPrizeCreator);
-            this.panel3.Controls.Add(this.ucTeamCreator);
-            this.panel3.Controls.Add(this.ucTournamentCreator);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(213, 167);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(860, 427);
             this.panel3.TabIndex = 29;
-            // 
-            // ucTournamentViewer
-            // 
-            this.ucTournamentViewer.BackColor = System.Drawing.Color.Transparent;
-            this.ucTournamentViewer.Location = new System.Drawing.Point(0, 0);
-            this.ucTournamentViewer.Name = "ucTournamentViewer";
-            this.ucTournamentViewer.Size = new System.Drawing.Size(860, 427);
-            this.ucTournamentViewer.TabIndex = 32;
-            this.ucTournamentViewer.Load += new System.EventHandler(this.ucTournamentViewer_Load);
-            // 
-            // ucDashboard
-            // 
-            this.ucDashboard.BackColor = System.Drawing.Color.Transparent;
-            this.ucDashboard.Location = new System.Drawing.Point(0, 0);
-            this.ucDashboard.Name = "ucDashboard";
-            this.ucDashboard.Size = new System.Drawing.Size(860, 427);
-            this.ucDashboard.TabIndex = 31;
+            this.panel3.Controls.Add(ucDashboard);
+            this.panel3.Controls.Add(ucPrizeCreator);
+            this.panel3.Controls.Add(ucTeamCreator);
+            this.panel3.Controls.Add(ucTournamentCreator);
+            this.panel3.Controls.Add(ucTournamentViewer);
             // 
             // exitButton
             // 
@@ -321,7 +258,6 @@ namespace TrackerUI
             this.Text = "Dashboard";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -329,14 +265,11 @@ namespace TrackerUI
 
         #endregion
         private System.Windows.Forms.Button loadButton;
-        private System.Windows.Forms.ComboBox tournamentSelectionComboBox;
-        private System.Windows.Forms.Label loadingTournamentLabel;
         private System.Windows.Forms.Button createTournamentButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button homeButton;
         private System.Windows.Forms.Button tournamentViewButton;
-        private System.Windows.Forms.Label dashboardLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button exitButton;
