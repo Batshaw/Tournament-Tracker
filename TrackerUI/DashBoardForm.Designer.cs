@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
@@ -43,8 +44,8 @@ namespace TrackerUI
             this.homeButton = new System.Windows.Forms.Button();
             this.tournamentViewButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.ucTournamentViewer = new TrackerUI.UCTournamentViewer(null);
-            this.ucDashboard = new TrackerUI.UCDashboard();
+            this.ucTournamentViewer = new TrackerUI.UCTournamentViewer(firstTournament);
+            this.ucDashboard = new TrackerUI.UCDashboard(this);
             this.ucPrizeCreator = new ClassLibrary2.UCPrizeCreator(this);
             this.ucTeamCreator = new UCTeamCreator(this);
             this.ucTournamentCreator = new UCTournamentCreator(this);

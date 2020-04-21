@@ -14,7 +14,7 @@ namespace TrackerUI
 {
     public partial class UCTournamentViewer : UserControl
     {
-        private TournamentModel tournament;
+        public TournamentModel tournament;
         List<int> rounds = new List<int>();
         List<MatchupModel> selectedMatchup = new List<MatchupModel>();
 
@@ -30,8 +30,7 @@ namespace TrackerUI
 
             if (model != null)
             {
-                LoadFormData();
-                LoadRounds(); 
+                RefreshTournament();
             }
         }
         private void WireUpLists()
@@ -42,6 +41,11 @@ namespace TrackerUI
             matchupsBinding.DataSource = selectedMatchup;
             matchupListBox.DataSource = matchupsBinding;
             matchupListBox.DisplayMember = "DisplayName";
+        }
+        public void RefreshTournament()
+        {
+            LoadFormData();
+            LoadRounds();
         }
         private void LoadFormData()
         {

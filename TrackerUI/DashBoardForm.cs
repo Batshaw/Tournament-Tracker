@@ -19,8 +19,10 @@ namespace TrackerUI
         private List<TeamModel> teams = GlobalConfig.Connection.GetTeam_All();
         private List<TournamentModel> tournaments = GlobalConfig.Connection.GetTournament_All();
         private List<Button> viewerButtons = new List<Button>();
+        public TournamentModel firstTournament = new TournamentModel();
         public DashBoardForm()
         {
+            firstTournament = tournaments.First();
             InitializeComponent();
             AddButton();
             ucDashboard.BringToFront();
@@ -65,8 +67,9 @@ namespace TrackerUI
         private void loadButton_Click(object sender, EventArgs e)
         {
             TournamentModel model = (TournamentModel)tournamentSelectionComboBox.SelectedItem;
-            TournamentViewerForm viewForm = new TournamentViewerForm(model);
-            viewForm.Show();
+            this.ucTournamentViewer = new UCTournamentViewer(model);
+            ucTournamentViewer.BringToFront();
+            resetBorderLook(tournamentViewButton);
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -120,6 +123,14 @@ namespace TrackerUI
                 }
             }
             
+        }
+        public void changeViewedTournament(TournamentModel model)
+        {
+            // firstTournament = model;
+            this.ucTournamentViewer.tournament = model;
+            this.ucTournamentViewer.RefreshTournament();
+            this.ucTournamentViewer.BringToFront();
+            resetBorderLook(tournamentViewButton);
         }
 
         private void ucTournamentViewer_Load(object sender, EventArgs e)

@@ -90,6 +90,7 @@
             this.tournamentSelectionComboBox.Name = "tournamentSelectionComboBox";
             this.tournamentSelectionComboBox.Size = new System.Drawing.Size(261, 29);
             this.tournamentSelectionComboBox.TabIndex = 27;
+            this.tournamentSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.tournamentSelectionComboBox_SelectedIndexChanged);
             // 
             // UCDashboard
             // 
