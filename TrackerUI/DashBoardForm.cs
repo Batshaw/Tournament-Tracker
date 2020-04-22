@@ -13,7 +13,7 @@ using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
-    public partial class DashBoardForm : Form// , ITournamentRequester// , IPrizeRequester// , ITeamRequester
+    public partial class DashBoardForm : Form, IViewChanger// , ITournamentRequester// , IPrizeRequester// , ITeamRequester
     {
         public List<PrizeModel> prizes = GlobalConfig.Connection.GetPrizes_All();
         public List<TeamModel> teams = GlobalConfig.Connection.GetTeam_All();
