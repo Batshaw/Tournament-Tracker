@@ -16,15 +16,19 @@ namespace TrackerUI
     public partial class UCDashboard : UserControl
     {
         DashBoardForm callingForm;
-        private List<PrizeModel> prizes = GlobalConfig.Connection.GetPrizes_All();
-        private List<TeamModel> teams = GlobalConfig.Connection.GetTeam_All();
-        private List<TournamentModel> tournaments = GlobalConfig.Connection.GetTournament_All();
-        private List<Button> viewerButtons = new List<Button>();
+        //private List<PrizeModel> prizes = GlobalConfig.Connection.GetPrizes_All();
+        //private List<TeamModel> teams = GlobalConfig.Connection.GetTeam_All();
+        //private List<TournamentModel> tournaments = GlobalConfig.Connection.GetTournament_All();
+        //private List<Button> viewerButtons = new List<Button>();
         public UCDashboard(DashBoardForm caller)
         {
             InitializeComponent();
             callingForm = caller;
             WireUpLists();
+        }
+        public UCDashboard()
+        {
+
         }
         public void WireUpLists()
         {

@@ -15,13 +15,23 @@ namespace TrackerUI
     public partial class UCTeamCreator : UserControl
     {
         DashBoardForm callingForm;
-        private List<PersonModel> availableTeamMembers = GlobalConfig.Connection.GetPerson_All();
-        private List<PersonModel> selectedTeamMembers = new List<PersonModel>();
+        private List<PersonModel> availableTeamMembers;
+        private List<PersonModel> selectedTeamMembers;
         public UCTeamCreator(DashBoardForm caller)
         {
             InitializeComponent();
             callingForm = caller;
+            SetLists();
             WireUpLists();
+        }
+        public UCTeamCreator()
+        {
+
+        }
+        private void SetLists()
+        {
+            availableTeamMembers = callingForm.person;
+            selectedTeamMembers = new List<PersonModel>();
         }
         private void WireUpLists()
         {

@@ -18,6 +18,7 @@ namespace TrackerUI
         public List<PrizeModel> prizes = GlobalConfig.Connection.GetPrizes_All();
         public List<TeamModel> teams = GlobalConfig.Connection.GetTeam_All();
         public List<TournamentModel> tournaments = GlobalConfig.Connection.GetTournament_All();
+        public List<PersonModel> person = GlobalConfig.Connection.GetPerson_All();
         private List<Button> viewerButtons = new List<Button>();
         public TournamentModel toShowTournament = new TournamentModel();
         public DashBoardForm()

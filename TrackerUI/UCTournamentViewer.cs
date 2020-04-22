@@ -33,6 +33,10 @@ namespace TrackerUI
                 RefreshTournament();
             }
         }
+        public UCTournamentViewer()
+        {
+                
+        }
         private void WireUpLists()
         {
             roundsBinding.DataSource = rounds;

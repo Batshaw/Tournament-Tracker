@@ -15,14 +15,25 @@ namespace TrackerUI
     public partial class UCTournamentCreator : UserControl
     {
         DashBoardForm callingForm;
-        private List<TeamModel> availabelTeams = GlobalConfig.Connection.GetTeam_All();
-        private List<TeamModel> selectedTeams = new List<TeamModel>();
-        private List<PrizeModel> selectedPrizes = GlobalConfig.Connection.GetPrizes_All();
+        private List<TeamModel> availabelTeams;
+        private List<TeamModel> selectedTeams;
+        private List<PrizeModel> selectedPrizes;
         public UCTournamentCreator(DashBoardForm caller)
         {
             InitializeComponent();
             callingForm = caller;
+            SetLists();
             WireUpLists();
+        }
+        public UCTournamentCreator()
+        {
+
+        }
+        private void SetLists()
+        {
+            availabelTeams = callingForm.teams;
+            selectedPrizes = callingForm.prizes;
+            selectedTeams = new List<TeamModel>();
         }
         public void WireUpLists()
         {

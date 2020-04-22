@@ -21,7 +21,10 @@ namespace ClassLibrary2
             InitializeComponent();
             callingForm = caller;
         }
-
+        public UCPrizeCreator()
+        {
+                
+        }
         private void createPrizeButton_Click(object sender, EventArgs e)
         {
             if (ValidateForm())
